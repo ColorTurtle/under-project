@@ -175,14 +175,39 @@ _.contains(jobTitle, 'Circus Coordinator')
 
 
 // *************Try 17
+// _.pluck - You can grab values out of the array for specific properties
+_.pluck(jobHistory, 'title')
+// Worked as expected.
 
 
 // *************Try 18
-// *************Try 19
-// *************Try 20
+// _.indexby should sort by the object property you specify. 
+// Curious to see if it sorts my star system for 'contentedness'
+_.indexBy(jobHistory, 'contentedness');
+// By golly, it did.  Returned array sorted as: -**, *, *****. 
+// How did it know to do that?
 
-// Start Collection Tries
-// Asked Jake H. for help on gettng the _.compact working & he showed me this:
+
+// *************Try 19
+// _.has searches the object for the parameter you provide.
+// If it finds it, then 'true' will be returned
+_.has(jobHistory[1], "title") //this returned 'true' as expected
+_.has(jobTitle, "title") //this returned 'false' as expected
+_.has(jobTitle, "bus boy") //this returned 'false' - NOT expected
+// Why?
+
+
+// *************Try 20
+// Kinda cool how intelligent code can be:
+_.isArray(jobHistory) //should be true
+_.isArray(jobTitle)  //should be true
+_.isObject(jobHistory)  //should be true, maybe.
+_.isObject(jobTitle) //should be false. WRONG. Came back as true.
+
+
+
+// Asked Jake H. for help on gettng the _.compact working 
+// & he showed me this. It's freaking cool:
 function coolStuff(){
 	_.each(jobHistory, function(obj){
 		if(obj.title)
