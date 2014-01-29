@@ -24,12 +24,13 @@ console.log('\'Allo \'Allo!');
 
 // ***********Try 1
 var jobHistory = [
-	{title: 'bus boy', contentedness: '-**'},
-	{title: 'Foster Agency Intake Director', contentedness: '*'},
-	{title: 'Grant Program Coordinator', contentedness: '***'},
-	{title: 'Production Coordinator', contentedness: '*****'},
-	{title: 0, contentedness: '*'},
-	{title: '', contentedness: '*'}
+	{title: 'bus boy', contentedness: '-**', precollege: true, salary: false},
+	{title: 'Foster Agency Intake Director', contentedness: '*', precollege: false, salary: false },
+	{title: 'Grant Program Coordinator', contentedness: '*****', precollege: false, salary: true },
+	{title: 'Production Coordinator', contentedness: '*****', precollege: false, salary: true },
+	{title: 0, contentedness: '*', precollege: true, salary: true },
+	{title: '', contentedness: '*', precollege: true, salary: true },
+	
 ];
 
 // _.initial should produce all array items except the last.
@@ -106,16 +107,76 @@ _.intersection(['bussboy', 'Intern'], ['bellboy', 'Intern', 'bussboy', 'front de
 
 
 // *************Try 9
+// SHould return those items not repeated between the 2 arrays. 
+_.difference(['Assistant Program Coordinator','Program Coordinator', 'Intern'], ['Intern', 'Production Coordinator'])
+// When adding more than 2 arrays this returns [ ]
 
 
+// Experimenting with Collection functions
 // *************Try 10
+// Using _.filter, this should filter the jobHistory entries by those that do not have a title value of null.
+// The second should filter with the same as the first, in addtion to those entries that have a contentedness value
+// Equal to '*****'
+var finishedEntry = _.filter(jobHistory, function(x) { return x.title !== 0;});
+var bestJobs = _.filter(jobHistory, function(x) { return x.title !== 0 && x.contentedness == '*****';});
+
 // *************Try 11
+// _.where should return those items that match the conditions specified
+// with this function
+
+var realJobs = _.where(jobHistory, {salary: true, precollege: false});
+// Nailed it.
+
 // *************Try 12
+// _.findWhere should return the first value of what the _.where function filtered.
+var realJob = _.findWhere(jobHistory, {salary: true, precollege: false});
+// It worked. I think this would be really valuable when the objects have
+// a sorting property, like date
+
+
 // *************Try 13
+// _.reject(list, iterator, [context]);
+// This should return all items in the array except those items with a salary value of false.
+var decentJobs = _.reject(jobHistory, function(x) { return x.salary == false;});
+// Worked!
+
+
 // *************Try 14
+// _.every([true, 1, null, 'yes'], _.identity);
+// _.every I think that by calling a particular property value 
+// within the collection I can check for null values
+_.every(jobHistory, function(x) { return x.title !== 0;});
+_.every(jobHistory, function(x) { return x.contentedness !== 0;});
+// Kinda cool. Basically it serves as a check as to whether 
+// these properties were correctly filled out.
+// The first returns false b/c I have a couple of titles that 
+// were not filled out.
+// The second returns true b/c all properties for contentedness
+// include strings with something in them.
+
+
 // *************Try 15
+// _.contains Basically kind of like a search function.
+// _.contains(jobHistory, 'Intern') //this doesn't work, i'm thinking
+// because it's not constructed to accept an iterator, maybe?
+_.contains(jobTitle, 'bus boy')
+// Returns 'true' b/c I have been a bus boy. 
+_.contains(jobTitle, 'Circus Coordinator')
+// Returns 'false' b/c I have never had the title of 'Circus Coordinator'
+
+
 // *************Try 16
+// When I tried calling _.invoke the console popped up an error
+// Uncaught TypeError: Cannot call method 'apply' of undefined 
+// underscore.js:229
+// _.invoke(jobHistory, 'sort')
+// Why did that happen? The error looks like something is wrong with
+// Underscore, but that seems kinda' crazy to me.
+
+
 // *************Try 17
+
+
 // *************Try 18
 // *************Try 19
 // *************Try 20
