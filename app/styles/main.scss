@@ -13,6 +13,33 @@ $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
 body {
     padding-top: 20px;
     padding-bottom: 20px;
+    &.neon {
+        background: rgb(3, 20, 3);
+        color: rgb(185, 241, 187);
+        text-shadow: 0px 1px 4px rgb(192, 231, 193);
+        h3 {
+            text-shadow: 0px 1px 4px rgb(192, 231, 193);
+            color: aliceblue;
+        }
+        a {
+            color: #EAEFF3;
+        }
+
+        a:hover {
+            color: #143D5E;
+            box-shadow: 1px 1px 8px white;
+        }
+    }
+}
+
+.nav-pills {
+    &.neon {
+        li.active a {
+            background: rgb(33, 53, 33);
+            border: 1px solid rgb(141, 184, 142);
+            box-shadow: 1px 1px 10px rgb(102, 117, 103);
+        }
+    }
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -34,6 +61,15 @@ body {
         line-height: 40px;
         padding-bottom: 19px;
     }
+    &.neon {
+        border-bottom: 1px solid #485249;
+    }
+}
+
+.btn-success {
+    &.neon {
+        box-shadow: 1px 1px 8px white;
+    }
 }
 
 /* Custom page footer */
@@ -41,6 +77,11 @@ body {
     padding-top: 19px;
     color: #777;
     border-top: 1px solid #e5e5e5;
+
+    &.neon {
+        color: aliceblue;
+        border-top: 1px solid #485249;
+    }
 }
 
 .container-narrow > hr {
@@ -51,6 +92,12 @@ body {
 .jumbotron {
     text-align: center;
     border-bottom: 1px solid #e5e5e5;
+    &.neon {
+        background: rgb(23, 36, 22);
+        border: 1px solid rgb(172, 243, 172);
+        box-shadow: 0px 1px 20px white;
+    }
+
     .btn {
         font-size: 21px;
         padding: 14px 24px;

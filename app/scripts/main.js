@@ -1,4 +1,16 @@
-console.log('\'Allo \'Allo!');
+console.log('Hey there! Thanks for checking out my programming.');
+console.log('You can use the console if you prefer, but you find it easier to inspect the main.js file.')
+console.log('In this assignment we had to come up with 20 examples of using Underscore.')
+console.log('I\'ve included a lot of comments with each example to share what I thought would happen and whether or not it did.')
+
+$('.btn-success').click(function() {
+	$('body').toggleClass('neon');
+	$('.jumbotron').toggleClass('neon');
+	$('.footer').toggleClass('neon');
+	$('.nav-pills').toggleClass('neon');
+	$('.header').toggleClass('neon');
+	$('.btn-success').toggleClass('neon');
+});
 
 // var students = [
 // {name: 'Mason'},
